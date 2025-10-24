@@ -1,0 +1,25 @@
+{ 
+  "base_url": "https://www.google.com",
+  "browser": "chromium",
+  "headless": false,
+	"slowMo": 200,
+	"defaultNavigationTimeout": 120000,
+	"timeout": 60000,
+  "login_url": "https://automationexercise.com/login",
+  "signup_url": "https://automationexercise.com/signup",
+  "account_created_url": "https://automationexercise.com/account_created",
+  "form_data": {
+    "email": "test@pytee1.com",
+    "username": "pyadmin12",
+    "password": "pyadmin123",
+    "title": "Mrs",
+    "firstname":"Lilly",
+    "lastname": "Bloom",
+    "address": "High Street, NYC",
+    "country": "United States",
+    "state": "NY",
+    "city": "NYC",
+    "zipcode": "90080",
+    "mobile": "+1408123456"
+     }
+}
