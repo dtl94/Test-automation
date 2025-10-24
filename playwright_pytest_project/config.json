@@ -9,8 +9,8 @@
   "signup_url": "https://automationexercise.com/signup",
   "account_created_url": "https://automationexercise.com/account_created",
   "form_data": {
-    "email": "test@pytee1.com",
-    "username": "pyadmin12",
+    "email": "pyadmin@pytest.com",
+    "username": "pyadmin",
     "password": "pyadmin123",
     "title": "Mrs",
     "firstname":"Lilly",
