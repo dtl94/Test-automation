@@ -23,3 +23,12 @@ def page(browser, config):
    page.set_default_timeout(config.get("timeout"))
    yield page
    page.close()
+
+@pytest.fixture(scope="session")
+def api_context(playwright):
+    # Create an API request context
+    api_request_context = playwright.request.new_context(
+        base_url="https://automationexercise.com"
+    )
+    yield api_request_context
+    api_request_context.dispose()
