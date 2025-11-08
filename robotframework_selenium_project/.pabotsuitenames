@@ -1,6 +1,0 @@
-datasources:69ab41694e09cca555076607f953787a7cd0fbf7
-commandlineoptions:d78c7ad375b049206dd28f28b5b282518abe805a
-suitesfrom:no-suites-from-option
-file:61e1d171f4d0b21feda07a813d020c28555c7941
---suite Cross Browser Parallel Tests.Cross Browser Tests.Login Test
---suite Cross Browser Parallel Tests.Cross Browser Tests.Signup Test
