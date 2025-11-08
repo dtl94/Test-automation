@@ -1,0 +1,61 @@
+services:
+  selenium-hub:
+    image: selenium/hub:4.11.0
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+    environment:
+      - SE_NODE_SESSION_TIMEOUT=120
+      - SE_SESSION_RETRY_INTERVAL=5
+      - SE_NODE_GRID_URL=http://selenium-hub:4444
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/status"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  chrome:
+    image: selenium/node-chrome:4.11.0
+    shm_size: 2gb
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=2
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_GRID_URL=http://selenium-hub:4444
+    depends_on:
+      selenium-hub:
+        condition: service_healthy
+
+  firefox:
+    image: selenium/node-firefox:4.11.0
+    shm_size: 2gb
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=2
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_GRID_URL=http://selenium-hub:4444
+    depends_on:
+      selenium-hub:
+        condition: service_healthy
+
+  robot-tests:
+    build: .
+    container_name: robot-tests
+    depends_on:
+      selenium-hub:
+        condition: service_healthy
+      chrome:
+        condition: service_started
+      firefox:
+        condition: service_started
+    environment:
+      - HUB_URL=http://selenium-hub:4444/wd/hub
+    volumes:
+      - ./Reports:/opt/robotframework/Reports

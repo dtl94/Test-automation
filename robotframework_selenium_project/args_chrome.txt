@@ -1,0 +1,8 @@
+--variable HUB_URL:http://selenium-hub:4444/wd/hub
+--variable BROWSER:chrome
+--variable PLATFORM:Linux
+--metadata Browser:Chrome
+--output output_chrome.xml
+--log log_chrome.html
+--report report_chrome.html
+Tests/

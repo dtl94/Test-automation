@@ -1,0 +1,8 @@
+--variable HUB_URL:http://selenium-hub:4444/wd/hub
+--variable BROWSER:firefox
+--variable PLATFORM:Linux
+--metadata Browser:Firefox
+--output output_firefox.xml
+--log log_firefox.html
+--report report_firefox.html
+Tests/

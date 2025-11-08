@@ -1,0 +1,11 @@
+{
+    "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+    "terminal.integrated.profiles.windows": {
+        "Ubuntu (WSL)": {
+            "path": "wsl.exe",
+            "args": ["-d", "Ubuntu"]
+        }
+    },
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+    "git.ignoreMissingGitWarning": true
+}
